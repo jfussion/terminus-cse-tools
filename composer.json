@@ -1,0 +1,13 @@
+{
+    "name": "jfussion/terminus-cse_tools",
+    "description": "Terminus tools for CSE",
+    "type": "terminus-plugin",
+    "autoload": {
+        "psr-4": { "Pantheon\\TerminusCseTools\\": "src" }
+    },
+    "extra": {
+       "terminus": {
+            "compatible-version": "1.*"
+        }
+    }
+}
