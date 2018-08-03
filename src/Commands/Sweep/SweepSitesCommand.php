@@ -15,7 +15,8 @@ class SweepSitesCommand extends SweepCommand
       $output = $this->output();
       $user = $this->session()->getUser();
 
-      $output->writeln('Gathering sites...');
+      $output->writeln('<info>Gathering sites...</>');
+      $output->writeln('<info>======================================</>');
       $this->sites()->fetch(['team_only' => true]);
 
       // Get remove sites owned by me.
@@ -43,7 +44,7 @@ class SweepSitesCommand extends SweepCommand
         foreach ($sites as $site_id => $value) {
           $output->write("Leaving " . $value['name'] . " site... ");
           $workflow = $this->getSite($site_id)->getUserMemberships()->get($me)->delete();
-          $output->write("Done!\n");
+          $output->writeln("<info>Done!</>");
         }
         $this->log()->notice('Success!');
       }
