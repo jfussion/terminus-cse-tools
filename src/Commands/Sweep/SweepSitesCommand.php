@@ -42,6 +42,10 @@ class SweepSitesCommand extends SweepCommand
           return;
         }
         foreach ($sites as $site_id => $value) {
+          // Terminus api is returning a null site_id. Skip if empty.
+          if (empty($site_id)) {
+            continue;
+          }
           $output->write("Leaving " . $value['name'] . " site... ");
           $workflow = $this->getSite($site_id)->getUserMemberships()->get($me)->delete();
           $output->writeln("<info>Done!</>");
